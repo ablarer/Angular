@@ -1,0 +1,44 @@
+nav a {
+  font-family: Arial, sans-serif;
+  font-weight: lighter;
+  padding: 1rem;
+  text-decoration: none;
+  margin: 10px 5px;
+  display: inline-block;
+  background-color: #e8e8e8;
+  color: #3d3d3d;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  color: white;
+  background-color: #42545C;
+}
+nav a:active {
+  background-color: black;
+}
+
+.app-title {
+  font-family: Arial, sans-serif;
+  font-weight: lighter;
+  color: #0077cc; /* Using the blue from earlier for consistency */
+  font-size: 32px; /* Making the title bigger than the h2 */
+  margin-bottom: 24px; /* Spacing out elements */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* Slight shadow for depth */
+  border-bottom: 2px solid #e0e0e0; /* A subtle bottom border to demarcate sections */
+  padding-bottom: 10px; /* Padding to give space above the border */
+}
+
+.app-heroes-section {
+  margin-bottom: 20px; /* Provide space between the heroes and messages sections */
+  font-family: Arial, sans-serif;
+  font-weight: lighter;
+}
+
+.app-messages-section {
+  font-family: Arial, sans-serif;
+  font-weight: lighter;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* A light shadow for depth, consistent with earlier styles */
+  border-radius: 5px; /* Soft rounded corners */
+  padding: 15px; /* Padding around messages */
+}

@@ -1,0 +1,56 @@
+/* DashboardComponent's private CSS styles */
+
+h2 {
+  color: #D32F2F; /* Adjusted to a brighter shade of red for more vibrancy */
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-weight: lighter;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Added subtle text-shadow for depth */;
+  text-align: center;
+}
+
+.heroes-menu {
+  font-family: Arial, sans-serif;
+  font-weight: lighter;
+  padding: 0;
+  margin: auto;
+  max-width: 1000px;
+
+  /* flexbox */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+a {
+  background-color: #3f525c;
+  border-radius: 2px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  min-width: 70px;
+  margin: .5rem auto;
+  box-sizing: border-box;
+
+  /* flexbox */
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+@media (min-width: 600px) {
+  a {
+    width: 18%;
+    box-sizing: content-box;
+  }
+}
+
+a:hover {
+  background-color: #000;
+}

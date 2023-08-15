@@ -1,0 +1,67 @@
+/* Style for the search label */
+#search-component label {
+  color: #D32F2F;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-weight: lighter;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  margin-right: 10px;
+}
+
+/* Style for the search input field */
+#search-box {
+  padding: 8px 12px;
+  border: 1px solid #ccc; /* A light border around the input */
+  border-radius: 5px; /* Rounded corners for a modern look */
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  width: 200px;
+  margin-right: 10px;
+}
+
+/* Enhance the focus effect for better UX */
+#search-box:focus {
+  outline: none; /* Removing the default browser outline */
+  border-color: #34a7ff; /* Changing the border color to a light blue to indicate focus */
+}
+
+/* General styles for search component */
+#search-component {
+  width: 20em;
+  padding: 1em;
+}
+
+/* Styles for search results */
+.search-result {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+.search-result li {
+  font-family: Arial, sans-serif;
+  font-weight: lighter;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  padding: 0.5em;
+}
+
+.search-result a {
+  flex: 1;
+  color: #333;
+  text-decoration: none;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-right: 0.5em;
+  transition: background-color 0.2s, color 0.2s;  /* smooth transition for hover effect */
+}
+
+/* Hover effect for better UX */
+.search-result a:hover {
+  color: #D32F2F;  /* Brighter red on hover */
+  background-color: #f9f9f9;  /* Light gray background on hover */
+  text-decoration: underline;
+  cursor: pointer;  /* Cursor changes to hand pointer to indicate clickability */
+}

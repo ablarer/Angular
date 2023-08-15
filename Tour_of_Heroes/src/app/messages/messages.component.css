@@ -1,0 +1,27 @@
+/* MessagesComponent's private CSS styles */
+
+h2 {
+  color: #D32F2F; /* Adjusted to a brighter shade of red for more vibrancy */
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-weight: lighter;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Added subtle text-shadow for depth */
+}
+
+.clear {
+  color: #333;
+  background: linear-gradient(135deg, #f1f1f1, #eee); /* Added a subtle gradient */
+  margin-bottom: 12px;
+  padding: 1rem;
+  border: 1px solid #d4d4d4; /* Added subtle border */
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.3s ease; /* Transition effect for smoother hover action */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Slight shadow for elevation */
+}
+
+.clear:hover {
+  color: #E1E1E1; /* Lightened the hover text color for better contrast with the background */
+  background-color: #2E3E50; /* Darkened the hover background color slightly for depth */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+  transform: translateY(-2px); /* Slight lift on hover for a dynamic effect */
+}

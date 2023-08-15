@@ -1,0 +1,84 @@
+.hero-details {
+  font-family: Arial, sans-serif; /* Ensure that there's no ' ' around Arial */
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  margin: 10px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #f7f2e8;
+}
+
+.hero-title {
+  color: #0077cc;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.hero-id {
+  display: flex; /* Flexbox to center items */
+  align-items: center; /* Vertical centering */
+  margin-bottom: 10px;
+  color: #e67300;
+}
+
+.id-label {
+  font-weight: bold;
+  color: #555;
+}
+
+.hero-input {
+  margin-bottom: 10px;
+  background-color: #e6f7ff;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.hero-label {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #4a4a4a;
+}
+
+.hero-textbox {
+  padding: 5px 10px;
+  border: 1px solid #b3d4ff;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.hero-textbox:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 5px rgba(0,119,204,0.5);
+}
+
+@keyframes rainbowAnimation {
+  0% { background-position: 0 0; }
+  100% { background-position: -200% 0; }
+}
+
+.btn-back {
+  margin-right: 10px;
+  color: #ffffff;
+
+  background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+
+  /* Apply the animation */
+  animation: rainbowAnimation 5s linear infinite;
+
+  /* This ensures that the gradient "extends" outside of the button's area, allowing for smooth scrolling */
+  background-size: 200% 100%;
+}
+
+.btn-save {
+  margin-right: 10px;
+  color: #ffffff;
+
+  background: linear-gradient(120deg, red, orange, yellow, green, blue, indigo, violet);
+
+  /* Apply the animation */
+  animation: rainbowAnimation 2s linear infinite;
+
+  /* This ensures that the gradient "extends" outside of the button's area, allowing for smooth scrolling */
+  background-size: 200% 100%;
+}

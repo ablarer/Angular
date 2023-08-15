@@ -1,0 +1,142 @@
+/* HeroesComponent's private CSS styles */
+h2 {
+  color: #D32F2F; /* Adjusted to a brighter shade of red for more vibrancy */
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-weight: lighter;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Added subtle text-shadow for depth */
+}
+
+.heroes {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 20em;
+  background-color: #f9f9f9;  /* Added a light background color */;
+  align-items: center; /* Ensure items are vertically centered */
+}
+
+.heroes li {
+  font-family: Arial, sans-serif;
+  font-weight: lighter;
+  display: flex;
+  border-bottom: 1px solid #e1e1e1;  /* Added a light border between list items */;
+  align-items: center; /* Ensure items are vertically centered */
+  justify-content: flex-start; /* Aligns content to the left, but hero-name will take up available space */
+  flex-wrap: nowrap; /* Prevent any wrapping inside the list item */
+}
+
+.heroes button {
+  cursor: pointer;
+  position: relative;
+  background-color: #EEE;
+  margin: .5em;
+  padding: 0.5em 1em; /* Added padding for button aesthetics */
+  border-radius: 4px;
+}
+
+.heroes .delete {
+  flex: none; /* Reset flex value so the button doesn't stretch */
+  margin-left: auto; /* Pushes the button to the far right */
+}
+
+.heroes button:hover {
+  color: #2c3a41;
+  background-color: #d4d4d4;  /* Made the hover slightly darker for better visibility */
+  left: .1em;
+}
+
+.heroes button:active {
+  background-color: #525252;
+  color: #fafafa;
+}
+
+.heroes button.selected {
+  background-color: #333333;  /* Darkened the selected button slightly */
+  color: white;
+}
+
+.heroes button.selected:hover {
+  background-color: #505050;
+  color: white;
+}
+
+.heroes button.selected:active {
+  background-color: #333333;
+  color: white;
+}
+
+.heroes .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.8em 0.8em 0.4em;
+  background-color: #3a4e6b;  /* Slightly modified badge color for a deeper shade */
+  line-height: 1em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+  width: 10px; /* Adjust this value based on the maximum expected width of the ID */
+  text-align: center; /* Center the ID within the badge */
+}
+
+.heroes .hero-name {
+  flex: 1;  /* Take up available space */
+  margin: 0.2em;  /* Add some margin for spacing between badge and button */
+  overflow: hidden;  /* Ensure name doesn't overflow if it's too long */
+  white-space: nowrap;  /* Prevent name from wrapping to multiple lines */
+}
+
+.add-button {
+  background: linear-gradient(45deg, #34a7ff, #4cd3c2); /* gradient background */
+  color: white;  /* text color */
+  border: none;  /* remove any default borders */
+  border-radius: 5px;  /* rounded corners */
+  padding: 10px 20px;  /* vertical and horizontal padding */
+  font-weight: 600;  /* make the font a bit bolder */
+  cursor: pointer;  /* hand cursor on hover for better UX */
+  transition: transform 0.2s, box-shadow 0.2s;  /* smooth transition for hover effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* subtle shadow for depth */
+  margin-left: 10px;  /* space between input and button */
+}
+
+.add-button:hover {
+  transform: translateY(-2px);  /* slight upward movement on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* increased shadow on hover */
+}
+
+.add-button:active {
+  transform: translateY(0);  /* reset movement on active press */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* reset shadow on active press */
+}
+
+/* Style for the label */
+label {
+  color: #D32F2F; /* Adjusted to a brighter shade of red for more vibrancy */
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-weight: lighter;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Added subtle text-shadow for depth */
+  margin-right: 10px; /* Some spacing between the label and the input box */
+}
+
+/* Style for the input field */
+#new-hero {
+  padding: 8px 12px; /* Spacing inside the input box */
+  border: 1px solid #ccc; /* A light border around the input */
+  border-radius: 5px; /* Rounded corners to match the button */
+  font-size: 1rem; /* Consistent font size */
+  transition: border-color 0.3s; /* Smooth transition for focus effect */
+  width: 200px; /* Setting a specific width for the input */
+  color: #333; /* Text color in the input field */
+  margin-right: 10px; /* Some spacing between the input and the add button */
+}
+
+/* Enhance the focus effect for better UX */
+#new-hero:focus {
+  outline: none; /* Removing the default browser outline */
+  border-color: #34a7ff; /* Changing the border color to a light blue to indicate focus */
+}
+
+#new-hero::placeholder {
+  color: #aaa; /* A lighter color for the placeholder text */
+}
+
+
