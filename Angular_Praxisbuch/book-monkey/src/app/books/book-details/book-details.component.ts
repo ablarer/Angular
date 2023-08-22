@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { Book } from '../../shared/book';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookStoreService } from '../../shared/book-store.service';
+import { switchMap } from 'rxjs/operators';
+
+import { BookUIFacadeService} from "../../shared/book-ui-facade.service";
 
 @Component({
   selector: 'bm-book-details',
@@ -14,9 +17,31 @@ export class BookDetailsComponent {
 
   constructor(
     private service: BookStoreService,
+    private uiFacade: BookUIFacadeService,
     private route: ActivatedRoute,
+    private router: Router,
   ) {
     const isbn = this.route.snapshot.paramMap.get('isbn')!;
-    this.book = this.service.getSingle(isbn);
+    this.service.getSingle(isbn).subscribe((book) => {
+      this.book = book;
+    });
+  }
+
+  removeBook(isbn: string) {
+    if (window.confirm('Do you really want to remove the book?')) {
+      this.service
+        .remove(isbn)
+        .pipe(
+          switchMap((response) =>
+            this.uiFacade.handleResponseWithUIFeedback(
+              response,
+              'The removing of the book was successful!',
+              'The removing of the book failed!',
+              '/books', // Providing navigationPath here to navigate after snackbar disappears
+            ),
+          ),
+        )
+        .subscribe();
+    }
   }
 }

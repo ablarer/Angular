@@ -2,40 +2,44 @@ import { Injectable } from '@angular/core';
 
 import { Book } from './book';
 
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+
 @Injectable({
   providedIn: 'root',
 })
+
 export class BookStoreService {
+  private apiUrl = 'https://api5.angular-buch.com'
   private books: Book[] = [];
 
-  constructor() {
-    this.books = [
-      {
-        isbn: '12345',
-        title: 'Super gut!',
-        authors: ['Henry Miller', 'Anais Nin'],
-        published: '01.02.1968',
-        subtitle: 'Wer es glaubt.',
-        thumbnailUrl: 'https://cdn.ng-buch.de/kochen.png',
-        description: 'Fantasy',
-      },
-      {
-        isbn: '54321',
-        title: 'Noch besser!',
-        authors: ['Ludwig van Bethoven', 'Klaus Kinski'],
-        published: '01.02.2001',
-        subtitle: 'Es wird noch besser.',
-        thumbnailUrl: 'https://cdn.ng-buch.de/backen.png',
-        description: 'Moderne Kunst und Musik',
-      },
-    ];
+  constructor(
+    private http: HttpClient,
+  ) {
   }
 
-  getAll(): Book[] {
-    return this.books;
+  getAll(): Observable<Book[]> {
+    return this.http.get<Book[]>(`${this.apiUrl}/books`);
   }
 
-  getSingle(isbn: string): Book | undefined {
-    return this.books.find((book) => book.isbn === isbn);
+  getSingle(isbn: string): Observable<Book> {
+    return this.http.get<Book>(`${this.apiUrl}/books/${isbn}`);
   }
+
+  remove(isbn: string): Observable<RemoveResponse> {
+    return this.http.delete<RemoveResponse>(`${this.apiUrl}/books/${isbn}`);
+  }
+
+  delete(): Observable<DeleteResponse> {
+    return this.http.delete<DeleteResponse>(`${this.apiUrl}/books`);
+  }
+}
+
+interface DeleteResponse {
+  success: boolean;
+}
+
+interface RemoveResponse {
+  success: boolean;
 }
