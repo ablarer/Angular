@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Book } from '../../shared/book';
 
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { BookStoreService } from '../../shared/book-store.service';
 import { switchMap } from 'rxjs/operators';
 
-import { BookUIFacadeService} from "../../shared/book-ui-facade.service";
+import { BookUIFacadeService } from '../../shared/book-ui-facade.service';
 
 @Component({
   selector: 'bm-book-details',
@@ -19,8 +19,8 @@ export class BookDetailsComponent {
     private service: BookStoreService,
     private uiFacade: BookUIFacadeService,
     private route: ActivatedRoute,
-    private router: Router,
   ) {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const isbn = this.route.snapshot.paramMap.get('isbn')!;
     this.service.getSingle(isbn).subscribe((book) => {
       this.book = book;

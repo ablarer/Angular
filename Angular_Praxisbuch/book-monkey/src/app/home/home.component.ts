@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-import { ActivatedRoute, Router } from '@angular/router';
 import { BookStoreService } from '../shared/book-store.service';
 import { switchMap } from 'rxjs/operators';
 
@@ -15,8 +14,6 @@ export class HomeComponent {
   constructor(
     private service: BookStoreService,
     private uiFacade: BookUIFacadeService,
-    private router: Router,
-    private route: ActivatedRoute,
   ) {}
 
   restoreBookList() {

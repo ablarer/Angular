@@ -1,29 +1,26 @@
 import { Injectable } from '@angular/core';
 import { BookStoreService } from './book-store.service';
-import {MatSnackBar, MatSnackBarRef} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { Observable, of, throwError } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+
+interface Response {
+  success: boolean;
+  // any other expected properties here
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookUIFacadeService {
-
   constructor(
     private bookStoreService: BookStoreService,
     private snackBar: MatSnackBar,
     private router: Router,
   ) {}
 
-  snackBarMessage(message: string, action: string = 'Close'): void {
-    this.snackBar.open(message, action, {
-      duration: 2000,
-    });
-  }
-
   handleResponseWithUIFeedback(
-    response: any,
+    response: Response,
     successMessage: string,
     failureMessage: string,
     navigationPath?: string,
