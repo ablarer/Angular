@@ -6,6 +6,7 @@ import { BookStoreService } from '../../shared/book-store.service';
 import { switchMap } from 'rxjs/operators';
 
 import { BookUIFacadeService } from '../../shared/book-ui-facade.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'bm-book-details',
@@ -13,7 +14,7 @@ import { BookUIFacadeService } from '../../shared/book-ui-facade.service';
   styleUrls: ['./book-details.component.css'],
 })
 export class BookDetailsComponent {
-  book?: Book;
+  book$: Observable<Book>;
 
   constructor(
     private service: BookStoreService,
@@ -22,9 +23,7 @@ export class BookDetailsComponent {
   ) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const isbn = this.route.snapshot.paramMap.get('isbn')!;
-    this.service.getSingle(isbn).subscribe((book) => {
-      this.book = book;
-    });
+    this.book$ = this.service.getSingle(isbn);
   }
 
   removeBook(isbn: string) {

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Book } from './book';
 
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,21 @@ export class BookStoreService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Book[]> {
-    return this.http.get<Book[]>(`${this.apiUrl}/books`);
+    return this.http.get<Book[]>(`${this.apiUrl}/books`).pipe(
+      catchError((err) => {
+        console.error(err);
+        return of([]);
+      }),
+    );
+  }
+
+  getAllSearch(term: string): Observable<Book[]> {
+    return this.http.get<Book[]>(`${this.apiUrl}/books/search/${term}`).pipe(
+      catchError((err) => {
+        console.error(err);
+        return of([]);
+      }),
+    );
   }
 
   getSingle(isbn: string): Observable<Book> {
@@ -27,6 +41,10 @@ export class BookStoreService {
 
   delete(): Observable<DeleteResponse> {
     return this.http.delete<DeleteResponse>(`${this.apiUrl}/books`);
+  }
+
+  create(book: Book): Observable<Book> {
+    return this.http.post<Book>(`${this.apiUrl}/books`, book);
   }
 }
 

@@ -7,13 +7,17 @@ import { NgOptimizedImage } from '@angular/common';
 import { BooksModule } from './books/books.module';
 import { HomeComponent } from './home/home.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SearchComponent } from './search/search.component';
+
+import { AuthInterceptor } from './shared/auth.interceptor';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, SearchComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,8 +26,15 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HttpClientModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
+    AdminModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
