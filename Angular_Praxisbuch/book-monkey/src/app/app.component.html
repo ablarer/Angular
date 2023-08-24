@@ -1,17 +1,23 @@
 <nav>
-    <a ariaCurrentWhenActive="page"
-       routerLink="/home"
-       routerLinkActive="active">Home</a>
+    <a routerLink="/home"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }"
+       aria-current="page">Home</a>
 
-    <a ariaCurrentWhenActive="page"
-       routerLink="/books"
-       routerLinkActive="active">Books</a>
-    <a ariaCurrentWhenActive="page" routerLink="/admin" routerLinkActive="active">Administration</a>
+    <a routerLink="/books"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }"
+       aria-current="page">Books</a>
+
+    <a routerLink="/admin"
+       routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }"
+       aria-current="page">Administration</a>
+
     <!-- Only show these buttons when NOT on the /books route -->
     <div *ngIf="!isBooksRoute" class="actions">
         <button (click)="auth.login()" *ngIf="!auth.isAuthenticated" class="green">Login</button>
         <button (click)="auth.logout()" *ngIf="auth.isAuthenticated" class="red">Logout</button>
-
     </div>
 </nav>
 
