@@ -1,31 +1,31 @@
-<div class="details" *ngIf="book$ | async as book">
-  <h1>{{ book.title }}</h1>
-  <p role="doc-subtitle" *ngIf="book.subtitle">
-    {{ book.subtitle }}
-  </p>
-  <div class="header">
-    <div>
-      <h2>Authors</h2>
-      <ul>
-        <li *ngFor="let author of book.authors">
-          {{ author }}
-        </li>
-      </ul>
+<div *ngIf="book$ | async as book" class="details">
+    <h1>{{ book.title }}</h1>
+    <p *ngIf="book.subtitle" role="doc-subtitle">
+        {{ book.subtitle }}
+    </p>
+    <div class="header">
+        <div>
+            <h2>Authors</h2>
+            <ul>
+                <li *ngFor="let author of book.authors">
+                    {{ author }}
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h2>ISBN</h2>
+            {{ book.isbn }}
+        </div>
+        <div *ngIf="book.published">
+            <h2>Published</h2>
+            {{ book.published }}
+        </div>
     </div>
-    <div>
-      <h2>ISBN</h2>
-      {{ book.isbn }}
-    </div>
-    <div *ngIf="book.published">
-      <h2>Published</h2>
-      {{ book.published }}
-    </div>
-  </div>
-  <h2>Description</h2>
-  <p>{{ book.description }}</p>
-  <img *ngIf="book.thumbnailUrl" [src]="book.thumbnailUrl" alt="Cover" />
-  <a class="button" routerLink="..">Back to the list.</a>
-  <button class="red"  (click)="removeBook(book.isbn)">
-    Remove the book.
-  </button>
+    <h2>Description</h2>
+    <p>{{ book.description }}</p>
+    <img *ngIf="book.thumbnailUrl" [src]="book.thumbnailUrl" alt="Cover"/>
+    <a class="button" routerLink="..">Back to the list.</a>
+    <button (click)="removeBook(book.isbn)" class="red">
+        Remove the book.
+    </button>
 </div>

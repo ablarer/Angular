@@ -1,23 +1,23 @@
-<form [formGroup]="form" (ngSubmit)="submitForm()">
+<form (ngSubmit)="submitForm()" [formGroup]="form">
     <label for="title">Title</label>
-    <input id="title" formControlName="title">
+    <input formControlName="title" id="title">
 
     <label for="subtitle">Subtitle</label>
-    <input id="subtitle" formControlName="subtitle">
+    <input formControlName="subtitle" id="subtitle">
 
     <label for="isbn">ISBN</label>
-    <input id="isbn" formControlName="isbn">
+    <input formControlName="isbn" id="isbn">
 
     <label for="description">Description</label>
-    <textarea id="description" formControlName="description"></textarea>
+    <textarea formControlName="description" id="description"></textarea>
 
     <label for="published">Published</label>
-    <input type="date" useValueAsLocalIso id="published" formControlName="published">
+    <input formControlName="published" id="published" type="date" useValueAsLocalIso>
 
     <label for="thumbnailUrl">Thumbnail URL</label>
-    <input type="url" id="thumbnailUrl" formControlName="thumbnailUrl">
+    <input formControlName="thumbnailUrl" id="thumbnailUrl" type="url">
 
-    <button type="submit" [disabled]="form.invalid">Save</button>
+    <button [disabled]="form.invalid" type="submit">Save</button>
 </form>
 
 <pre>{{ form.value | json}}</pre>

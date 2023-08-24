@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
 import {
-  filter,
   debounceTime,
   distinctUntilChanged,
+  iif,
+  Observable,
+  of,
+  Subject,
   switchMap,
   tap,
-  iif,
-  of,
 } from 'rxjs';
 
 import { BookStoreService } from '../shared/book-store.service';
@@ -23,6 +23,7 @@ export class SearchComponent {
   isLoading = false;
 
   results$: Observable<Book[]>;
+  protected readonly parent = parent;
 
   constructor(private service: BookStoreService) {
     this.results$ = this.input$.pipe(
@@ -35,6 +36,4 @@ export class SearchComponent {
       tap(() => (this.isLoading = false)),
     );
   }
-
-  protected readonly parent = parent;
 }

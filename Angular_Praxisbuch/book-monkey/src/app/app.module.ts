@@ -7,7 +7,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { BooksModule } from './books/books.module';
 import { HomeComponent } from './home/home.component';
 
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';

@@ -18,4 +18,4 @@ import { LocalIsoDateValueAccessor } from 'angular-date-value-accessor';
     LocalIsoDateValueAccessor,
   ],
 })
-export class AdminModule { }
+export class AdminModule {}
