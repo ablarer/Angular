@@ -1,23 +1,50 @@
 <form (ngSubmit)="submitForm()" [formGroup]="form">
-    <label for="title">Title</label>
-    <input formControlName="title" id="title">
+  <label for="title">Title</label>
+  <input formControlName="title" id="title">
 
-    <label for="subtitle">Subtitle</label>
-    <input formControlName="subtitle" id="subtitle">
+  <bm-form-errors
+    controlName="title"
+    [messages]="{ required: 'Title is required' }">
+  </bm-form-errors>
 
-    <label for="isbn">ISBN</label>
-    <input formControlName="isbn" id="isbn">
+  <label for="subtitle">Subtitle</label>
+  <input formControlName="subtitle" id="subtitle">
 
-    <label for="description">Description</label>
-    <textarea formControlName="description" id="description"></textarea>
+  <label for="isbn">ISBN</label>
+  <input formControlName="isbn" id="isbn">
 
-    <label for="published">Published</label>
-    <input formControlName="published" id="published" type="date" useValueAsLocalIso>
+  <bm-form-errors
+    controlName="isbn"
+    [messages]="{
+      required: 'ISBN is required',
+      isbnformat: 'ISBN must have 10 or 13 chars',
+      isbnexists: 'ISBN already exists'
+    }">
+  </bm-form-errors>
 
-    <label for="thumbnailUrl">Thumbnail URL</label>
-    <input formControlName="thumbnailUrl" id="thumbnailUrl" type="url">
+  <label>Authors</label>
+  <button type="button" class="add" (click)="addAuthorControl()">Add an Author.</button>
+  <fieldset formArrayName="authors">
+    <div *ngFor="let a of authors.controls; index as i">
+      <button type="button" (click)="deleteActiveAuthor(i)">Remove the author below.</button>
+      <input [attr.aria-label]="'Author ' + i" [formControlName]="i">
+    </div>
+  </fieldset>
+  <bm-form-errors
+    controlName="authors"
+    [messages]="{ atleastonevalue: 'At least one author required' }">
+  </bm-form-errors>
 
-    <button [disabled]="form.invalid" type="submit">Save</button>
+  <label for="description">Description</label>
+  <textarea formControlName="description" id="description"></textarea>
+
+  <label for="published">Published</label>
+  <input formControlName="published" id="published" type="date" useValueAsLocalIso>
+
+  <label for="thumbnailUrl">Thumbnail URL</label>
+  <input formControlName="thumbnailUrl" id="thumbnailUrl" type="url">
+
+  <button [disabled]="form.invalid" type="submit">Save</button>
 </form>
 
-<pre>{{ form.value | json}}</pre>
+<pre>{{ form.value | json }}</pre>

@@ -46,6 +46,14 @@ export class BookStoreService {
   create(book: Book): Observable<Book> {
     return this.http.post<Book>(`${this.apiUrl}/books`, book);
   }
+
+  update(book: Book): Observable<Book> {
+    return this.http.put<Book>(`${this.apiUrl}/books/${book.isbn}`, book);
+  }
+
+  check(isbn: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.apiUrl}/books/${isbn}check`);
+  }
 }
 
 interface DeleteResponse {
