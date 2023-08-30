@@ -14,11 +14,12 @@
        [routerLinkActiveOptions]="{ exact: true }"
        aria-current="page">Administration</a>
 
-    <!-- Only show these buttons when NOT on the /books route -->
-    <div *ngIf="!isBooksRoute" class="actions">
-        <button (click)="auth.login()" *ngIf="!auth.isAuthenticated" class="green">Login</button>
-        <button (click)="auth.logout()" *ngIf="auth.isAuthenticated" class="red">Logout</button>
+    <!-- Only show these buttons when NOT on the /books and /admin/create and /books/* route -->
+    <div *ngIf="!isBooksRoute && !isAdminRoute && !isBooksSubdirectories" class="actions">
+      <button (click)="auth.login()" *ngIf="!auth.isAuthenticated" class="green">Login</button>
+      <button (click)="auth.logout()" *ngIf="auth.isAuthenticated" class="red">Logout</button>
     </div>
+
 </nav>
 
 <main>

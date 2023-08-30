@@ -14,20 +14,19 @@
     </div>
     <div>
       <h2>ISBN</h2>
-      {{ book.isbn }}
+      {{ book.isbn | isbn }}
     </div>
     <div *ngIf="book.published">
       <h2>Published</h2>
-      {{ book.published }}
+      {{ book.published | date:'longDate' }}
     </div>
   </div>
   <h2>Description</h2>
   <p>{{ book.description }}</p>
   <img *ngIf="book.thumbnailUrl" [src]="book.thumbnailUrl" alt="Cover"/>
   <a class="button" routerLink="..">Back to the list.</a>
-  <a class="button" [routerLink]="['/admin/edit', book.isbn]">
-    Edit book.</a>
-  <button (click)="removeBook(book.isbn)" class="red">
-    Remove the book.
-  </button>
+  <ng-container *bmLoggedinOnly>
+    <a class="button" [routerLink]="['/admin/edit', book.isbn]">Edit book</a>
+    <button (click)="removeBook(book.isbn)" class="button red">Remove the book</button>
+  </ng-container>
 </div>

@@ -18,4 +18,12 @@ export class AppComponent {
   get isBooksRoute(): boolean {
     return this.router.url === '/books';
   }
+
+  get isAdminRoute(): boolean {
+    return this.router.url === '/admin/create';
+  }
+
+  get isBooksSubdirectories(): boolean {
+    return this.router.url.startsWith('/books');
+  }
 }

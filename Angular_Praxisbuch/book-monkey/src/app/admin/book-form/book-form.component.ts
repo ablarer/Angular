@@ -38,7 +38,6 @@ export class BookFormComponent implements OnChanges {
     description: new FormControl('', { nonNullable: true }),
     published: new FormControl('', { nonNullable: true }),
     thumbnailUrl: new FormControl('', { nonNullable: true }),
-    // authors: new FormArray([new FormControl('', { nonNullable: true })]),
     authors: this.buildAuthorsArray(['']),
   });
 
