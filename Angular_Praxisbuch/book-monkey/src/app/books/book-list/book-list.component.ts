@@ -1,43 +1,24 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators'; // Import the tap operator
 
 import { Book } from '../../shared/book';
 import { BookStoreService } from '../../shared/book-store.service';
-import { switchMap } from 'rxjs/operators';
 
 import { BookUIFacadeService } from '../../shared/book-ui-facade.service';
+import {AsyncPipe, NgFor, NgIf} from "@angular/common";
+import {BookListItemComponent} from "../book-list-item/book-list-item.component";
 
 @Component({
   selector: 'bm-book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css'],
+  standalone: true,
+  imports: [AsyncPipe, NgFor, NgIf, BookListItemComponent]
 })
 export class BookListComponent {
   books$: Observable<Book[]>;
 
-  constructor(private service: BookStoreService, private uiFacade: BookUIFacadeService) {
+  constructor(private service: BookStoreService) {
     this.books$ = this.service.getAll();
-  }
-
-  restoreBookList() {
-    if (window.confirm('Do you really want to restore the book list?')) {
-      this.service
-        .delete()
-        .pipe(
-          switchMap((response) =>
-            this.uiFacade.handleResponseWithUIFeedback(
-              response,
-              'Restore successful!',
-              'Restore failed!',
-            )
-          ),
-          // After the restoration is successful, update the books$ observable
-          tap(() => {
-            this.books$ = this.service.getAll();
-          })
-        )
-        .subscribe();
-    }
   }
 }
