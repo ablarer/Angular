@@ -8,9 +8,6 @@ import { switchMap } from 'rxjs/operators';
 
 import { BookUIFacadeService } from '../../shared/book-ui-facade.service';
 
-import { LoggedinOnlyDirective} from "../../shared/loggedin-only.directive";
-import { AuthService } from "../../shared/auth.service";
-
 @Component({
   selector: 'bm-book-list',
   templateUrl: './book-list.component.html',
