@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-interface Response {
+export interface Response {
   success: boolean;
   // any other expected properties here
 }

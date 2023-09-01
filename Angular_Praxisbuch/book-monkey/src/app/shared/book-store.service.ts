@@ -9,7 +9,7 @@ import { catchError, Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class BookStoreService {
-  private apiUrl = 'https://api5.angular-buch.com';
+  apiUrl = 'https://api5.angular-buch.com';
 
   constructor(private http: HttpClient) {}
 

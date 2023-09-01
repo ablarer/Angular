@@ -38,6 +38,7 @@ export class BookDetailsComponent {
   ) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const isbn = this.route.snapshot.paramMap.get('isbn')!;
+    // Make sure 'isbn' is a string
     this.book$ = this.service.getSingle(isbn);
   }
 
