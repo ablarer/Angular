@@ -3,6 +3,11 @@
     "@angular/animations": "^16.2.1"
   },
   "devDependencies": {
+    "jasmine": "^5.1.0",
+    "karma-jasmine": "^5.1.0",
+    "karma-jasmine-html-reporter": "^2.1.0",
+    "karma-sourcemap-loader": "^0.4.0",
+    "karma-webpack": "^5.0.0",
     "typescript": "^4.9.3"
   }
 }
